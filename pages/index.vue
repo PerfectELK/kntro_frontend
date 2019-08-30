@@ -32,9 +32,26 @@
 </script>
 
 <style lang="scss">
+    $tablets : 768px;
+    $large_dev : 992px;
     .index-main {
         .content-wrapper {
             .content {
+                @media screen and (max-width: $large_dev) {
+                    flex-direction: column;
+                    .content-image{
+                        margin-top: 1.5em;
+                        min-width: 281px!important;
+                    }
+                }
+                .content-image{
+                    min-width: 480px;
+                    .content-image__inner{
+                        img{
+                            width: 100%;
+                        }
+                    }
+                }
                 .content-text {
                     display: flex;
                     justify-content: center;
@@ -48,13 +65,24 @@
                             flex-direction: column;
                             h1 {
                                 font-family: 'Russo One', sans-serif;
+                                font-size: calc( (100vw - 480px)/(1920 - 286) * (72 - 34) + 34px);
+                                color:#0C156F;
                             }
-                            h2 {
+                            h3{
                                 font-family: 'Russo One', sans-serif;
+                                font-size: calc( (100vw - 480px)/(1920 - 480) * (32 - 23) + 23px);
+                                color:#0C156F;
+                                @media screen and (max-width: $large_dev) {
+                                    text-align: center;
+                                }
                             }
                         }
                         .content-text__btn {
                             margin-top: 1em;
+                            text-align: center;
+                            @media screen and (max-width: $large_dev) {
+                                text-align: left;
+                            }
                             button {
                                 background-color: #FF4F79;
                                 color: #ffffff;
@@ -64,6 +92,7 @@
                                 min-height: 55px;
                                 padding: 0 23px;
                                 border-radius: 20px;
+
                             }
                         }
                     }

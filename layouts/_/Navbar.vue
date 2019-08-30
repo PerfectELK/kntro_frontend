@@ -8,7 +8,7 @@
                     </div>
                 </div>
             </div>
-            <div class="navbar-block__element">
+            <div class="navbar-block__element" v-bind:class="this.classes.navbar">
                 <ul class="nav-panel">
                     <li class="nav-panel__item">
                         <nuxt-link to="/about" class="nav-link">Обо мне</nuxt-link>
@@ -20,16 +20,40 @@
                         <nuxt-link to="/reviews" class="nav-link">Отзывы</nuxt-link>
                     </li>
                     <li class="nav-panel__item">
-                        <nuxt-link to="/contacts" class="nav-link">Связаться со мной</nuxt-link>
+                        <nuxt-link to="/contacts" class="nav-link nav-link-pink">Связаться со мной</nuxt-link>
                     </li>
                 </ul>
             </div>
+            <Hamburger v-on:hamburgerClicked="clickHamburger"/>
         </nav>
     </section>
 </template>
 
-<style lang="scss">
+<script>
+    import Hamburger from '~/components/hamburger/DotsHamburger.vue'
+    export default {
+        data(){
+          return{
+              classes:{
+                  navbar:{
+                    'navbar-block__element-visible': false,
+                  }
+              }
+          }
+        },
+        components:{
+            Hamburger
+        },
+        methods:{
+            clickHamburger(isOpen){
+                this.classes.navbar['navbar-block__element-visible'] = isOpen;
+            }
+        }
+    }
+</script>
 
+<style lang="scss">
+    $large_dev : 992px;
     .navbar-section{
         display: flex;
         flex-direction: row;
@@ -57,6 +81,35 @@
                 display: flex;
                 flex-direction: row;
                 justify-content: flex-end;
+                position: relative;
+                transition: all 0.5s ease-in-out;
+                @media screen and (max-width: $large_dev) {
+                    position: absolute;
+                    top:-1000px;
+                    left:50%;
+                    transform: translateX(-50%);
+                    width: 100%;
+                    height: 100vh;
+                    justify-content: center!important;
+                    z-index: 100;
+                    background-color: #fff;
+                    &-visible{
+                        top:0;
+                    }
+                    .nav-panel{
+                        flex-direction: column!important;
+                        justify-content: flex-start!important;
+                        align-items: center!important;
+                        margin-bottom: 20em;
+                        &__item{
+                            margin-left: 0!important;
+                            margin-top: 2em;
+                            .nav-link{
+                                font-size: calc( (100vw - 480px)/(1920 - 480) * (72 - 34) + 34px)!important;
+                            }
+                        }
+                    }
+                }
                 .nav-panel{
                     padding: 0;
                     margin-top: 1em;
@@ -81,6 +134,9 @@
                             line-height: 29px;
                             color:#797FB5;
                             &:hover{
+                                color:hotpink;
+                            }
+                            &-pink{
                                 color:hotpink;
                             }
                         }
