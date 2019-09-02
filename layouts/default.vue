@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app__container">
     <Navbar/>
     <nuxt />
     <Footer/>
@@ -20,5 +20,9 @@
 
 
 <style lang="scss">
-
+    .app__container{
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 </style>

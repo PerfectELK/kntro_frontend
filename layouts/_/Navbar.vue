@@ -4,7 +4,9 @@
             <div class="navbar-block__logo">
                 <div class="logo-wrapper">
                     <div class="logo">
+                        <nuxt-link to="/">
                         <img src="~/static/img/tmp/Rectangle.png" alt="">
+                        </nuxt-link>
                     </div>
                 </div>
             </div>
@@ -54,6 +56,9 @@
 
 <style lang="scss">
     $large_dev : 992px;
+    .nuxt-link-active{
+        color:#0C156F!important;
+    }
     .navbar-section{
         display: flex;
         flex-direction: row;
@@ -69,10 +74,13 @@
                 max-width: 132px;
                 .logo-wrapper{
                     .logo{
-                        img{
-                            height: 132px;
-                            width: 132px;
+                        a{
+                            img{
+                                height: 132px;
+                                width: 132px;
+                            }
                         }
+
                     }
                 }
             }
@@ -133,6 +141,7 @@
                             font-size: 20px;
                             line-height: 29px;
                             color:#797FB5;
+                            transition: all 0.5s ease-in-out;
                             &:hover{
                                 color:hotpink;
                             }

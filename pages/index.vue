@@ -2,7 +2,7 @@
     <main class="main index-main">
         <div class="content-wrapper container-fluid">
             <div class="content row">
-                <div class="content-text col">
+                <div class="content-text col-lg-5 col-xl-5 col-md-12 col-xs-12 col-sm-12">
                     <div class="content-container">
                         <div class="content-text__inner">
                             <h1>
@@ -17,7 +17,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="content-image col">
+                <div class="content-image col-lg-7 col-xl-7 col-md-12 col-xs-12 col-sm-12">
                     <div class="content-image__inner">
                         <img src="~/static/img/tmp/index.png" alt="">
                     </div>
@@ -35,17 +35,22 @@
     $tablets : 768px;
     $large_dev : 992px;
     .index-main {
+        margin-top: auto;
+        margin-bottom: auto;
         .content-wrapper {
             .content {
                 @media screen and (max-width: $large_dev) {
                     flex-direction: column;
+                    align-items: center;
                     .content-image{
+                        max-width: 700px!important;
                         margin-top: 1.5em;
                         min-width: 281px!important;
                     }
                 }
                 .content-image{
                     min-width: 480px;
+                    max-width: 890px;
                     .content-image__inner{
                         img{
                             width: 100%;
