@@ -1,3 +1,4 @@
+
 module.exports = {
     mode: 'universal',
     /*
@@ -22,12 +23,15 @@ module.exports = {
     ** Global CSS
     */
     css: [
-        '~/assets/scss/index.scss'
+        '~/assets/scss/index.scss',
+        'swiper/dist/css/swiper.css',
     ],
     /*
     ** Plugins to load before mounting the App
     */
-    plugins: [],
+    plugins: [
+        { src: '~/plugins/swiper.js', ssr: false },
+    ],
     /*
     ** Nuxt.js dev-modules
     */
@@ -56,7 +60,7 @@ module.exports = {
         /*
         ** You can extend webpack config here
         */
-        extend(config, ctx) {
+        extend (config, { isServer }) {
         },
         extractCSS: {
             allChunks: true
