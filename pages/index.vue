@@ -50,7 +50,7 @@
                 }
                 .content-image{
                     min-width: 480px;
-                    max-width: 890px;
+                    max-width: 770px;
                     .content-image__inner{
                         img{
                             width: 100%;

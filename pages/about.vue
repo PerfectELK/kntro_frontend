@@ -85,7 +85,7 @@
                 .about-img {
                     .about-img__inner{
                         margin: 0 auto;
-                        max-width: 800px;
+                        max-width: 730px;
                         min-width: 500px;
                         img{
                             width:100%;

@@ -1,7 +1,10 @@
 <template>
     <main class="main reviews-main">
         <div class="reviews-main__inner">
-            <Swipe v-bind:component="comp" v-bind:data_for_component="data_for_component"/>
+            <Swipe v-bind:component="comp"
+                   v-bind:data_for_component="data_for_component"
+                   v-bind:addition_styles="addition_styles"
+            />
         </div>
     </main>
 </template>
@@ -23,6 +26,9 @@
           return{
               data_for_component: [],
               comp: Reviews,
+              addition_styles:{
+                  zoom_side_slides: true,
+              }
           }
         },
         components:{
