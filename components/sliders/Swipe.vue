@@ -4,8 +4,7 @@
             <component v-bind:is="_component"
                        v-for="(_data, key) in this.data_for_component"
                        v-bind:key="key"
-                       v-bind:name="_data.first_name"
-                       v-bind:text="_data.email"
+                       v-bind:__data="_data"
             />
         </div>
         <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-bullets-dynamic"></div>
@@ -22,17 +21,15 @@
                     loop: true,
                     centeredSlides: true,
                     spaceBetween: 30,
-                    parallax: true,
-                    init: true,
-                    autoplay: {
-                        delay: 5000,
-                    },
+                    slidesPerView: 3,
+                    setWrapperSize: true,
+                    //     delay: 5000,
+                    // },
                     pagination: {
                         el: '.swiper-pagination',
                         clickable: true,
                         dynamicBullets: true
                     },
-                    slidesPerView: 3,
                     on: {
                         slideChange() {
                         },
@@ -61,8 +58,8 @@
             addition_styles: Object,
             data_for_component: Array,
         },
-
         mounted() {
+
         },
         computed:{
             _component(){
@@ -73,31 +70,57 @@
 </script>
 
 
-<style lang="scss" scoped>
-
+<style lang="scss">
     .my-swiper {
         height: 300px;
-        width: 100%;
+        position: relative;
         .swiper-slide {
-            text-align: center;
+            /*text-align: center;
             font-size: 38px;
             font-weight: 700;
             background-color: #eee;
             display: flex;
             justify-content: center;
             align-items: center;
-
+            */
         }
 
     }
-    /*.swiper-pagination{
-        width: auto!important;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-    }*/
     .swiper-wrapper{
         margin-bottom: 100px;
+    }
+    .zoom_side_slides{
+        .swiper-slide{
+            //width: 300px !important;
+            //position: relative;
+            //width: 400px!important;
+            //margin: auto 0;
+            //transition: max-width 0.4s ease-in-out;
+
+        }
+        .swiper-slide-active{
+            //width: 450px;
+            //width: 50%;
+            .portfolio-item{
+                &__inner{
+                    .portfolio-photo {
+                        &__inner {
+                            img{
+                                //width: 350px;
+                            }
+                        }
+                    }
+                }
+            }
+            //width: 500px!important;
+        }
+        /*.swiper-slide-prev{
+            transform: scale(0.7);
+            transition: transform 0.8s ease-in-out;
+        }
+        .swiper-slide-next{
+            transform: scale(0.7);
+            transition: transform 0.8s ease-in-out;
+        }*/
     }
 </style>

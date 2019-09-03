@@ -39,6 +39,8 @@
         margin-bottom: auto;
         .content-wrapper {
             .content {
+                display: flex;
+                justify-content: center;
                 @media screen and (max-width: $large_dev) {
                     flex-direction: column;
                     align-items: center;

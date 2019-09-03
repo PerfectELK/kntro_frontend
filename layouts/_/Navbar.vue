@@ -1,7 +1,7 @@
 <template>
     <section class="navbar-section">
         <nav class="navbar-block">
-            <div class="navbar-block__logo">
+            <div class="navbar-block__logo" v-if="!window_less">
                 <div class="logo-wrapper">
                     <div class="logo">
                         <nuxt-link to="/">
@@ -12,6 +12,11 @@
             </div>
             <div class="navbar-block__element" v-bind:class="this.classes.navbar">
                 <ul class="nav-panel">
+                    <li class="nav-panel__item" v-if="window_less">
+                        <nuxt-link to="/" class="nav-link">
+                            <img src="~/static/img/tmp/Rectangle.png" alt="">
+                        </nuxt-link>
+                    </li>
                     <li class="nav-panel__item">
                         <nuxt-link to="/about" class="nav-link">Обо мне</nuxt-link>
                     </li>
@@ -40,7 +45,24 @@
                   navbar:{
                     'navbar-block__element-visible': false,
                   }
+              },
+              the_window: (typeof window != 'undefined') ? window.innerWidth : null ,
+              window_less: false,
+          }
+        },
+        watch:{
+          the_window: function(){
+              if(window.innerWidth > 992) {
+                  this.window_less = false
+              }else{
+                  this.window_less = true;
               }
+          }
+        },
+        mounted(){
+          this.the_window = window.innerWidth;
+          window.onresize = () => {
+              this.the_window = window.innerWidth;
           }
         },
         components:{
@@ -62,9 +84,11 @@
     .navbar-section{
         display: flex;
         flex-direction: row;
+        //justify-content: center;
+        margin-left: calc( (100vw - 1000px)/(1920 - 1000) * (250 - 34) + 34px)!important;;
         height: auto;
         .navbar-block{
-            width: 100%;
+            //width: 100%;
             display: flex;
             flex-direction: row;
             justify-content: center;

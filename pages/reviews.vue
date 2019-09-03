@@ -27,7 +27,7 @@
               data_for_component: [],
               comp: Reviews,
               addition_styles:{
-                  zoom_side_slides: true,
+                  zoom_side_slides: false,
               }
           }
         },

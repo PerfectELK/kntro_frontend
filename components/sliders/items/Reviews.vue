@@ -4,12 +4,12 @@
             <div class="review-item__inner">
                 <div class="review-name">
                     <div class="review-name__inner">
-                        {{ this.name }}
+                        {{ this.__data.first_name }}
                     </div>
                 </div>
                 <div class="review-text">
                     <div class="review-text__inner">
-                        {{ this.text }}
+                        {{ this.__data.email }}
                     </div>
                 </div>
             </div>
@@ -25,9 +25,11 @@
 
           }
         },
+        mounted(){
+          console.log(this.__data);
+        },
         props:{
-            name:String,
-            text:String,
+            __data: Object
         }
     }
 </script>

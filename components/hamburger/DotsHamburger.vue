@@ -27,6 +27,14 @@
                 this.classObject.clicked = !this.classObject.clicked;
                 this.$emit('hamburgerClicked', this.classObject.clicked)
             }
+        },
+        mounted(){
+            this.$router.beforeEach((to, from, next) => {
+                if(window.innerWidth <= 992){
+                    this.toggleClass();
+                }
+                next();
+            })
         }
     }
 </script>
