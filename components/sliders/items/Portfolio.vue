@@ -44,7 +44,8 @@
                     display: inline-block;
                     text-align: center;
                     img{
-                        width: 300px;
+                        transition: width 0.4s ease-in-out;
+                        width: 230px;
                     }
                 }
             }

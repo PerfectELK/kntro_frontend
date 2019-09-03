@@ -23,26 +23,21 @@
                     spaceBetween: 30,
                     slidesPerView: 3,
                     setWrapperSize: true,
-                    //     delay: 5000,
-                    // },
+                    mousewheel: true,
+                    autoplay: {
+                        delay: 5000,
+                    },
                     pagination: {
                         el: '.swiper-pagination',
                         clickable: true,
                         dynamicBullets: true
-                    },
-                    on: {
-                        slideChange() {
-                        },
-                        tap() {
-
-                        }
                     },
                     breakpoints:{
                         645: {
                             slidesPerView: 1,
                         },
                         // when window width is <= 480px
-                        978: {
+                        1100: {
                             slidesPerView: 2,
                         },
                         // when window width is <= 640px
@@ -75,52 +70,43 @@
         height: 300px;
         position: relative;
         .swiper-slide {
-            /*text-align: center;
+            text-align: center;
             font-size: 38px;
             font-weight: 700;
             background-color: #eee;
             display: flex;
             justify-content: center;
             align-items: center;
-            */
+            cursor: pointer;
         }
 
+    }
+
+    .swiper-slide{
+        cursor: pointer;
     }
     .swiper-wrapper{
         margin-bottom: 100px;
     }
     .zoom_side_slides{
+        min-height: 450px;
         .swiper-slide{
-            //width: 300px !important;
-            //position: relative;
-            //width: 400px!important;
-            //margin: auto 0;
-            //transition: max-width 0.4s ease-in-out;
+            margin: auto 0;
+            transition: width 0.4s ease-in-out;
 
         }
         .swiper-slide-active{
-            //width: 450px;
-            //width: 50%;
             .portfolio-item{
                 &__inner{
                     .portfolio-photo {
                         &__inner {
                             img{
-                                //width: 350px;
+                                width: 350px;
                             }
                         }
                     }
                 }
             }
-            //width: 500px!important;
         }
-        /*.swiper-slide-prev{
-            transform: scale(0.7);
-            transition: transform 0.8s ease-in-out;
-        }
-        .swiper-slide-next{
-            transform: scale(0.7);
-            transition: transform 0.8s ease-in-out;
-        }*/
     }
 </style>

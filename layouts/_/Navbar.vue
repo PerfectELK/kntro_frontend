@@ -1,7 +1,7 @@
 <template>
     <section class="navbar-section">
         <nav class="navbar-block">
-            <div class="navbar-block__logo" v-if="!window_less">
+            <div class="navbar-block__logo" v-if="!this.window_less">
                 <div class="logo-wrapper">
                     <div class="logo">
                         <nuxt-link to="/">
@@ -12,7 +12,7 @@
             </div>
             <div class="navbar-block__element" v-bind:class="this.classes.navbar">
                 <ul class="nav-panel">
-                    <li class="nav-panel__item" v-if="window_less">
+                    <li class="nav-panel__item" v-if="this.window_less">
                         <nuxt-link to="/" class="nav-link">
                             <img src="~/static/img/tmp/Rectangle.png" alt="">
                         </nuxt-link>
@@ -47,7 +47,7 @@
                   }
               },
               the_window: (typeof window != 'undefined') ? window.innerWidth : null ,
-              window_less: false,
+              window_less: '',
           }
         },
         watch:{
@@ -60,10 +60,15 @@
           }
         },
         mounted(){
-          this.the_window = window.innerWidth;
-          window.onresize = () => {
-              this.the_window = window.innerWidth;
-          }
+            if (window.innerWidth > 992) {
+                this.window_less = false
+            } else {
+                this.window_less = true;
+            }
+
+            window.onresize = () => {
+                this.the_window = window.innerWidth;
+            }
         },
         components:{
             Hamburger
@@ -85,7 +90,7 @@
         display: flex;
         flex-direction: row;
         //justify-content: center;
-        margin-left: calc( (100vw - 1000px)/(1920 - 1000) * (250 - 34) + 34px)!important;;
+        margin-left: calc( (100vw - 1000px)/(1920 - 1000) * (250 - 0) + 0px)!important;;
         height: auto;
         .navbar-block{
             //width: 100%;
@@ -132,7 +137,6 @@
                         flex-direction: column!important;
                         justify-content: flex-start!important;
                         align-items: center!important;
-                        margin-bottom: 20em;
                         &__item{
                             margin-left: 0!important;
                             margin-top: 2em;
@@ -149,6 +153,7 @@
                     display: flex;
                     flex-direction: row;
                     justify-content: center;
+                    align-items: center;
                     list-style-type: none;
                     .nav-panel__item{
                         margin-left: 1em;

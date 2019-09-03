@@ -103,7 +103,7 @@
         right: 0;
         display: none;
         z-index: 120;
-
+        cursor: pointer;
         @media screen and (max-width: $large_dev){
             display: block;
         }
