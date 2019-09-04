@@ -26,7 +26,6 @@
           }
         },
         mounted(){
-          console.log(this.__data);
         },
         props:{
             __data: Object

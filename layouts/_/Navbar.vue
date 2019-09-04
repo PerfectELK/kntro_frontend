@@ -52,7 +52,7 @@
         },
         watch:{
           the_window: function(){
-              if(window.innerWidth > 992) {
+              if(window.innerWidth > 992){
                   this.window_less = false
               }else{
                   this.window_less = true;
@@ -60,15 +60,16 @@
           }
         },
         mounted(){
+
             if (window.innerWidth > 992) {
                 this.window_less = false
             } else {
                 this.window_less = true;
             }
 
-            window.onresize = () => {
+            window.addEventListener('resize',() => {
                 this.the_window = window.innerWidth;
-            }
+            });
         },
         components:{
             Hamburger

@@ -81,9 +81,9 @@
             }else{
                 this.window_less_small = false;
             }
-            window.onresize = () => {
+            window.addEventListener('resize',() => {
                 this.the_window = window.innerWidth;
-            }
+            });
         },
     }
 </script>
@@ -91,6 +91,7 @@
 <style lang="scss">
     $tablets : 768px;
     $large_dev : 992px;
+    $extra_small : 576px;
     .index-main {
         margin-top: auto;
         margin-bottom: auto;
@@ -164,6 +165,9 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    @media screen and (max-width: $extra_small) {
+                        justify-content:flex-start;
+                    }
                     .content-container {
 
                         display: flex;
