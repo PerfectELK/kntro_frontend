@@ -13,8 +13,8 @@
                         <div class="contact-form__fields">
                             <div class="field-container">
                                 <div class="two-inputs">
-                                    <TextInput v-model="form.name"></TextInput>
-                                    <TextInput v-model="form.email"></TextInput>
+                                    <TextInput v-bind:placeholder="placeholders.name" v-model="form.name"></TextInput>
+                                    <TextInput v-bind:placeholder="placeholders.email" v-model="form.email"></TextInput>
                                 </div>
                                 <div class="one-input">
                                     <Button v-bind:name="form.button" v-on:click="btnClicked()"/>
@@ -45,6 +45,10 @@
                     name:'',
                     email:'',
                     button: "Отправить"
+                },
+                placeholders:{
+                    name:"ФИО",
+                    email:"Email"
                 }
             }
         },
@@ -64,10 +68,12 @@
     $large_dev : 992px;
     $extra_small : 576px;
     .contacts-main{
-        margin-top: auto;
+        margin-top: 15vh;
         margin-bottom: auto;
         .contacts-block{
             .contacts-block__inner{
+                margin-left: 0;
+                margin-right: 0;
                 .contact-form{
                     max-width: 700px;
                     margin: auto;
@@ -76,6 +82,9 @@
                         display: flex;
                         flex-direction: column;
                         .contact-form__header{
+                            @media screen and (max-width: $extra_small){
+                                text-align: center;
+                            }
                             h2{
                                 color: #FF4F79;
                                 font-style: normal;
@@ -85,6 +94,9 @@
                             }
                         }
                         .contact-form__bottom{
+                            @media screen and (max-width: $extra_small){
+                                text-align: center;
+                            }
                             margin-top: 1em;
                             p{
                                 font-family: 'Russo One', sans-serif;
@@ -99,10 +111,27 @@
                     .contact-form__fields{
                         margin-top: 1em;
                         .field-container{
+                            @media screen and (max-width: $extra_small){
+                                .two-inputs{
+                                    flex-direction: column!important;
+                                    align-items: center;
+                                    & > div{
+                                        max-width: 400px;
+                                        width:100%;
+                                        margin-top: 1.5em;
+                                    }
+                                }
+                                .one-input{
+                                    max-width: 400px;
+                                    margin:1.5em auto 0 auto;
+                                }
+
+                            }
                             .two-inputs{
                                 display: flex;
                                 flex-direction: row;
                                 justify-content: space-between;
+
                             }
                             .one-input{
                                 margin-top: 1.5em;

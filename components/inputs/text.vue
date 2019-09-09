@@ -33,12 +33,21 @@
             height: 40px;
             border: 1.5px solid #0C156F;
             border-radius: 20px;
-            background: #ffffff;
+            background: rgba(255,255,255,0.1);
             outline: none;
             font-size: 22px;
             font-weight: normal;
             font-family: 'Russo One', sans-serif;
             padding-left: 24px;
+        }
+        input:focus{
+            &::placeholder{
+                opacity: 1;
+            }
+        }
+        input::placeholder{
+            transition: all 0.5s ease-in-out;
+            opacity: 0;
         }
     }
 </style>
