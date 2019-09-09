@@ -69,6 +69,9 @@
     $extra_small : 576px;
     .contacts-main{
         margin-top: 15vh;
+        @media screen and (max-width: $extra_small){
+            margin-top: auto!important;
+        }
         margin-bottom: auto;
         .contacts-block{
             .contacts-block__inner{
